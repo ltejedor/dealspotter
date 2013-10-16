@@ -1,0 +1,26 @@
+<div class="container">
+<h1>Welcome to Deal Spotter</h1>
+
+
+<ol>
+ <% @deals.each do |deal| %>
+  	<div class="row">
+  		<div class="col-md-2">
+  			<li>
+  				<img src="<%= deal['imageUrl'] %>">
+  			</div>
+  			<div class="col-md-6">
+		  		<h2><%= deal['name'] %></h2>
+
+		  		<p>Address: <a href="https://maps.google.com/maps?q=<%= deal['latitude'] %>,<%= deal['longitude'] %>"><%= deal['streetAddress'] %>, <%= deal['city'] %></a></p>
+		  		<p>Rating: <%= deal['starRating'] %>/5 Stars</p>
+		  		<p>Price Per Night: $<%= deal['pricePerNight'] %></p>
+		  		<p><%= deal['description'] %></p>
+		  		<button class="btn btn-primary" onclick="location.href='http://www.expedia.com/'">Learn More</button>
+  			</li>
+  		</div>
+  	</div>
+ <% end %>
+</ol>
+
+</div>
